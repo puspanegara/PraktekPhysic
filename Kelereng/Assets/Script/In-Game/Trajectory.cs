@@ -10,7 +10,7 @@ public class Trajectory : MonoBehaviour
     [SerializeField] float dotSpacing;
     [SerializeField] [Range(0.01f, 0.3f)] float dotMinScale;
     [SerializeField] [Range(0.3f, 1f)] float dotMaxScale;
-    
+
     Transform[] dotsList;
 
     //Dot Position
@@ -30,7 +30,7 @@ public class Trajectory : MonoBehaviour
         float scale = dotMaxScale;
         float scaleFactor = scale / dotsNumber;
 
-        for(int i=0; i < dotsNumber; i++)
+        for (int i = 0; i < dotsNumber; i++)
         {
             dotsList[i] = Instantiate(dotPrefab, null).transform;
             dotsList[i].parent = dotsParent.transform;
@@ -44,7 +44,7 @@ public class Trajectory : MonoBehaviour
     public void UpdateDots(Vector3 ballPos, Vector2 forceApplied)
     {
         timeStamp = dotSpacing;
-        for(int i=0; i < dotsNumber; i++)
+        for (int i = 0; i < dotsNumber; i++)
         {
             pos.x = (ballPos.x + forceApplied.x * timeStamp);
             pos.y = (ballPos.y + forceApplied.y * timeStamp);
@@ -62,5 +62,18 @@ public class Trajectory : MonoBehaviour
     {
         //Hide the Dots
         dotsParent.SetActive(false);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Obs"))
+        {
+
+        }
+    }
+
+    void CollisionObs(Collision2D other)
+    {
+        Vector3 reflectedPosition = Vector3.Reflect(transform.right, other.contacts[0].normal);
     }
 }

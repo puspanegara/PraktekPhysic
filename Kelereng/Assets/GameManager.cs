@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
                 OnDragEnd();
             }
         }
-        /*
-         * Mouse controller
+        
+         // Mouse controller
         if (Input.GetMouseButtonDown(0))
             {
                 isDragging = true;
@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
                 isDragging = false;
                 OnDragEnd();
             }
-        */
     }
 
     void OnDragStart()
