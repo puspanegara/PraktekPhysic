@@ -17,13 +17,19 @@ public class GameManager : MonoBehaviour
     #endregion
 
     Camera cam;
-    //Touch touch;
     public BallControl ball;
-    public Trajectory trajectory;
+    public int moveCount;
+    public int stars;
+    public int move3Stars;
+    public int move2Stars;
+    public int move1Stars;
+
+    //public Trajectory trajectory;
     [SerializeField] float pushForce = 4f;
 
     bool isDragging = false;
     Touch touch;
+    public UIController uiCtrl;
 
     Vector2 startPoint;
     Vector2 endPoint;
@@ -40,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Touch Controller (Smartphone)
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
@@ -63,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
         
          // Mouse controller
-        if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 isDragging = true;
                 OnDragStart();
@@ -78,14 +85,16 @@ public class GameManager : MonoBehaviour
             {
                 isDragging = false;
                 OnDragEnd();
-            }
+             }
+
+        PlayerStars();
     }
 
     void OnDragStart()
     {
         ball.DesActiveRb();
         startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-        trajectory.Show();
+        //trajectory.Show();
     }
     void OnDrag()
     {
@@ -95,15 +104,38 @@ public class GameManager : MonoBehaviour
         force = direction * distance * pushForce;
 
         //Debug Only
-        Debug.DrawLine(startPoint, endPoint);
+       // Debug.DrawLine(startPoint, endPoint);
 
-        trajectory.UpdateDots(ball.pos, force);
+        //trajectory.UpdateDots(ball.pos, force);
     }
     void OnDragEnd()
     {
         ball.ActiveRb();
 
         ball.Push(force);
-        trajectory.Hide();
+        //trajectory.Hide();
+        moveCount += 1;
+        Debug.Log("Player Move : " + moveCount);
+        uiCtrl.uiMoveCount.text = "Player Move : " + moveCount.ToString();
+        Debug.Log(uiCtrl.uiMoveCount.text = "Move Count : "+moveCount);
+    }
+
+    void PlayerStars()
+    {
+        if(moveCount <= move3Stars)
+        {
+            stars = 3;
+            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+        }
+        if (moveCount == move2Stars)
+        {
+            stars = 2;
+            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+        }
+        if (moveCount >= move1Stars)
+        {
+            stars = 1;
+            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+        }
     }
 }

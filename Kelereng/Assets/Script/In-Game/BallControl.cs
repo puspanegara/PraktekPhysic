@@ -79,6 +79,8 @@ public class BallControl : MonoBehaviour
     #endregion
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public CircleCollider2D col;
+
+    public UIController uiCtrl;
     
     [HideInInspector] public Vector3 pos
     {
@@ -106,5 +108,11 @@ public class BallControl : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
         rb.isKinematic = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        uiCtrl.LoseLose();
+        Debug.Log("Pembatas");
     }
 }
