@@ -110,9 +110,12 @@ public class BallControl : MonoBehaviour
         rb.isKinematic = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        uiCtrl.LoseLose();
-        Debug.Log("Pembatas");
+        if (collision.gameObject.tag == "Pinggiran")
+        {
+            uiCtrl.LoseLose();
+            Debug.Log("Pembatas");
+        }
     }
 }

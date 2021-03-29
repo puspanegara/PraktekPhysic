@@ -25,10 +25,16 @@ public class UIController : MonoBehaviour
         playerLose = false;
     }
 
-    public void WinWin()
+    public void AbleWin()
     {
         winPanel.SetActive(true);
         playerWin = true;
+    }
+
+    public void DisableWin()
+    {
+        winPanel.SetActive(false);
+        playerWin = false;
     }
 
     public void LoseLose()

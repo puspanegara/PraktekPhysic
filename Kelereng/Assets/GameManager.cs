@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public int move3Stars;
     public int move2Stars;
     public int move1Stars;
+    public LingkaranMerah lingkaran;
+    public int npcinCircle;
 
     //public Trajectory trajectory;
     [SerializeField] float pushForce = 4f;
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
              }
 
         PlayerStars();
+        WinGame();
     }
 
     void OnDragStart()
@@ -136,6 +139,17 @@ public class GameManager : MonoBehaviour
         {
             stars = 1;
             uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+        }
+    }
+    void WinGame()
+    {
+        if(lingkaran.countNpc == npcinCircle)
+        {
+            uiCtrl.AbleWin();
+        }
+        else
+        {
+            uiCtrl.DisableWin();
         }
     }
 }
