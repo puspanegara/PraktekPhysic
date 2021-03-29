@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
     public int move1Stars;
     public LingkaranMerah lingkaran;
     public int npcinCircle;
+    public UIController uiCtrl;
 
     //public Trajectory trajectory;
     [SerializeField] float pushForce = 4f;
 
     bool isDragging = false;
     Touch touch;
-    public UIController uiCtrl;
 
     Vector2 startPoint;
     Vector2 endPoint;
@@ -114,7 +114,6 @@ public class GameManager : MonoBehaviour
     void OnDragEnd()
     {
         ball.ActiveRb();
-
         ball.Push(force);
         //trajectory.Hide();
         moveCount += 1;
