@@ -48,7 +48,7 @@ TagManager:
   - name: MiddleGround
     uniqueID: 2020988451
     locked: 0
-  - name: Character
+  - name: Character&Obstacle
     uniqueID: 1862222353
     locked: 0
   - name: ForeGround
