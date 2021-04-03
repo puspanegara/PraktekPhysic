@@ -5,6 +5,7 @@ using UnityEngine;
 public class LingkaranMerah : MonoBehaviour
 {
     public int countNpc;
+    public int mainKelereng;
     public UIController uiCtrl;
     // Start is called before the first frame update
     void Start()
