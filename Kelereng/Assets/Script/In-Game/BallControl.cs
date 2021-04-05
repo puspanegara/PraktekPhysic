@@ -81,6 +81,7 @@ public class BallControl : MonoBehaviour
     [HideInInspector] public CircleCollider2D col;
 
     public UIController uiCtrl;
+
     
     [HideInInspector] public Vector3 pos
     {
@@ -110,6 +111,7 @@ public class BallControl : MonoBehaviour
         rb.isKinematic = true;
     }
 
+    /*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Pinggiran")
@@ -118,4 +120,5 @@ public class BallControl : MonoBehaviour
             Debug.Log("Pembatas");
         }
     }
+    */
 }

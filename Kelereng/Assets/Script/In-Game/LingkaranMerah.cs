@@ -19,7 +19,7 @@ public class LingkaranMerah : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "NPC") ;
+        if (collision.gameObject.tag == "NPC");
         countNpc += 1;
         Debug.Log("Kelereng Masuk");
         Debug.Log("Jumlah Kelereng : " + countNpc);
@@ -27,7 +27,7 @@ public class LingkaranMerah : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "NPC") ;
+        if (collision.gameObject.tag == "NPC");
         countNpc -= 1;
         Debug.Log("Kelereng Keluar");
         Debug.Log("Jumlah Kelereng : " + countNpc);

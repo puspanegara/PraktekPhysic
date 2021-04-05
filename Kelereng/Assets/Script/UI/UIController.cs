@@ -8,8 +8,10 @@ public class UIController : MonoBehaviour
     #region Public Area
     public GameObject winPanel;
     public GameObject losePanel;
+    public GameObject infoBintang;
     public bool playerWin;
     public bool playerLose;
+    public bool openInfo;
     public Text uiMoveCount;
     public Text uiStars;
     #endregion
@@ -41,5 +43,19 @@ public class UIController : MonoBehaviour
     {
         losePanel.SetActive(true);
         playerLose = true;
+    }
+
+    public void InfoBintang()
+    {
+        if(openInfo == false)
+        {
+            infoBintang.SetActive(true);
+            openInfo = true;
+        }
+        else
+        {
+            infoBintang.SetActive(false);
+            openInfo = false;
+        }
     }
 }
