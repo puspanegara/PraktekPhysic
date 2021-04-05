@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - NPC
-  - Pinggiran
   layers:
   - Default
   - TransparentFX
@@ -44,15 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG
-    uniqueID: 3204789811
+  - name: BackGround
+    uniqueID: 2918780557
     locked: 0
-  - name: Character
-    uniqueID: 946288111
+  - name: MiddleGround
+    uniqueID: 2020988451
     locked: 0
-  - name: FG
-    uniqueID: 106432671
+  - name: Character&Obstacle
+    uniqueID: 1862222353
+    locked: 0
+  - name: ForeGround
+    uniqueID: 4041380695
     locked: 0
   - name: UI
-    uniqueID: 770248149
+    uniqueID: 3548138087
     locked: 0
