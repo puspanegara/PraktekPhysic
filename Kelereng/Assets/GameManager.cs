@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public LingkaranMerah lingkaran;
     public int npcinCircle;
     public UIController uiCtrl;
+    public Animator animator;
 
     //public Trajectory trajectory;
     [SerializeField] float pushForce = 4f;
