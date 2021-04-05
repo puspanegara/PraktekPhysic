@@ -713,6 +713,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8014533177976232342, guid: 2ac8920a034f1fd40b43dace2b2b7f65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014533178258392517, guid: 2ac8920a034f1fd40b43dace2b2b7f65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac8920a034f1fd40b43dace2b2b7f65, type: 3}
 --- !u!114 &407790872 stripped
@@ -2488,6 +2498,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Kelereng
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838822473724558066, guid: 1119c6a76c449014eb06fd01db677106,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838822473724558066, guid: 1119c6a76c449014eb06fd01db677106,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 344132818342246689, guid: c03d5d84f83c9264589e94f7f74f647e,
+        type: 3}
+    - target: {fileID: 7838822473724558066, guid: 1119c6a76c449014eb06fd01db677106,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7838822473724558067, guid: 1119c6a76c449014eb06fd01db677106,
         type: 3}
