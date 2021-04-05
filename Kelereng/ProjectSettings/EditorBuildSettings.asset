@@ -5,19 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: cf9aa1ab32995ad43a0aa4b60aaeda23
-  - enabled: 1
-    path: Assets/Scenes/Galeri.unity
-    guid: f3555d79687c60245b58435caaf5cdfe
   - enabled: 1
     path: Assets/Scenes/Pilih Level.unity
-    guid: 36093e42e527c07418a52b1998ff74cb
+    guid: 2761d913b69212041b6301ce505c7c1a
   - enabled: 1
-    path: Assets/Scenes/Setting.unity
-    guid: 43d7843170cfa5541a40c7dc8495ea5a
+    path: Assets/Scenes/In Game Level 1.unity
+    guid: aff7d4f329de595488cdb5b9e0dc377f
+  - enabled: 1
+    path: Assets/Scenes/In Game Level 2.unity
+    guid: 9d72f3e0541bf4f41bde9f5c3a80f25b
+  - enabled: 1
+    path: Assets/Scenes/Galeri.unity
+    guid: 298dadcdb7eaf7843ae7a5dee2bfadb1
   m_configObjects: {}
