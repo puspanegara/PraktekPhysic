@@ -81,8 +81,8 @@ public class BallControl : MonoBehaviour
     [HideInInspector] public CircleCollider2D col;
 
     public UIController uiCtrl;
-
-    
+    public GameManager gm;
+    public float addForce;
     [HideInInspector] public Vector3 pos
     {
         get { return transform.position; }
@@ -104,14 +104,20 @@ public class BallControl : MonoBehaviour
         rb.isKinematic = false;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mantul")
+        {
+            rb.velocity = gm.force * addForce;
+            Debug.Log("F" + gm.force);
+        }
+    }
     public void DesActiveRb()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0f;
         rb.isKinematic = true;
     }
-
-    /*
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Pinggiran")
@@ -120,5 +126,4 @@ public class BallControl : MonoBehaviour
             Debug.Log("Pembatas");
         }
     }
-    */
 }

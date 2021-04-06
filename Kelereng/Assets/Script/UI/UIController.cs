@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     #region Public Area
-    public GameObject winPanel;
+    public GameObject Win3Stars;
+    public GameObject Win2Stars;
+    public GameObject Win1Stars;
     public GameObject losePanel;
     public GameObject infoBintang;
     public bool playerWin;
@@ -14,6 +16,9 @@ public class UIController : MonoBehaviour
     public bool openInfo;
     public Text uiMoveCount;
     public Text uiStars;
+    public Text text3Stars;
+    public Text text2Stars;
+    public Text text1Stars;
     #endregion
 
     #region Private Area
@@ -21,22 +26,27 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        winPanel.SetActive(false);
+        Win1Stars.SetActive(false);
+        Win2Stars.SetActive(false);
+        Win3Stars.SetActive(false);
         losePanel.SetActive(false);
         playerWin = false;
         playerLose = false;
     }
-
-    public void AbleWin()
+    public void Stars3()
     {
-        winPanel.SetActive(true);
+        Win3Stars.SetActive(true);
         playerWin = true;
     }
-
-    public void DisableWin()
+    public void Stars2()
     {
-        winPanel.SetActive(false);
-        playerWin = false;
+        Win2Stars.SetActive(true);
+        playerWin = true;
+    }
+    public void Stars1()
+    {
+        Win1Stars.SetActive(true);
+        playerWin = true;
     }
 
     public void LoseLose()
@@ -58,4 +68,5 @@ public class UIController : MonoBehaviour
             openInfo = false;
         }
     }
+
 }

@@ -24,7 +24,7 @@ public class GameManagerA : MonoBehaviour
     public int move2Stars;
     public int move1Stars;
     public LingakaranPlayer lingkaran;
-    public int playerInCircle;
+    public int inCircle;
     public UIController uiCtrl;
 
     //public Trajectory trajectory;
@@ -38,14 +38,11 @@ public class GameManagerA : MonoBehaviour
     Vector2 direction;
     Vector2 force;
     float distance;
-
-
     void Start()
     {
         cam = Camera.main;
         ball.DesActiveRb();
     }
-
     void Update()
     {
         //Touch Controller (Smartphone)

@@ -23,13 +23,11 @@ public class GameManager : MonoBehaviour
     public int move3Stars;
     public int move2Stars;
     public int move1Stars;
-    public LingkaranMerah lingkaran;
-    public int npcinCircle;
+    public int inCircle;
     public UIController uiCtrl;
-    public Animator animator;
 
     //public Trajectory trajectory;
-    [SerializeField] float pushForce = 4f;
+    public float pushForce = 4f;
 
     bool isDragging = false;
     Touch touch;
@@ -37,7 +35,7 @@ public class GameManager : MonoBehaviour
     Vector2 startPoint;
     Vector2 endPoint;
     Vector2 direction;
-    Vector2 force;
+    public Vector2 force;
     float distance;
     
 
@@ -89,9 +87,7 @@ public class GameManager : MonoBehaviour
                 isDragging = false;
                 OnDragEnd();
              }
-
-        PlayerStars();
-        WinGame();
+        StarsPerLevel();
     }
 
     void OnDragStart()
@@ -123,33 +119,30 @@ public class GameManager : MonoBehaviour
         Debug.Log(uiCtrl.uiMoveCount.text = "Move Count : "+moveCount);
     }
 
-    void PlayerStars()
+    void PlayerEndGame()
     {
         if(moveCount <= move3Stars)
         {
-            stars = 3;
-            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+            uiCtrl.Stars3();
+            uiCtrl.playerWin = true;
+            Debug.Log("WIN 3 STARS");
         }
         if (moveCount == move2Stars)
         {
-            stars = 2;
-            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+            uiCtrl.Stars2();
+            uiCtrl.playerWin = true;
         }
         if (moveCount >= move1Stars)
         {
-            stars = 1;
-            uiCtrl.uiStars.text = "Stars : " + stars.ToString();
+            uiCtrl.Stars1();
+            uiCtrl.playerWin = true;
         }
     }
-    void WinGame()
+    
+    public void StarsPerLevel()
     {
-        if(lingkaran.countNpc == npcinCircle)
-        {
-            uiCtrl.AbleWin();
-        }
-        else
-        {
-            uiCtrl.DisableWin();
-        }
+        uiCtrl.text3Stars.text = " : Max Move " + move3Stars.ToString();
+        uiCtrl.text2Stars.text = " : Max Moce " + move2Stars.ToString();
+        uiCtrl.text1Stars.text = " : More Than " + move1Stars.ToString();
     }
 }

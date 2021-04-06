@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Wall
-  - NPC
   - Pinggiran
+  - NPC
+  - Mantul
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - UI Depan
+  - 
   - 
   - 
   - 
@@ -43,19 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BG
-    uniqueID: 3204789811
-    locked: 0
-  - name: Character
-    uniqueID: 946288111
-    locked: 0
-  - name: FG
-    uniqueID: 106432671
-    locked: 0
-  - name: UI Depan
-    uniqueID: 770248149
-    locked: 0
-  - name: UI Belakang
-    uniqueID: 2196359319
     locked: 0

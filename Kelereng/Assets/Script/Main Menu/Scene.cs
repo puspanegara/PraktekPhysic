@@ -5,23 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class Scene : MonoBehaviour
 {
-    public GameObject pauseGame;
-
-    // Start is called before the first frame update
+    // public GameObject pauseGame;
+    public string nameScene;
+    public float stayTime;
+    public static int numberScene;
     void Start()
     {
-        pauseGame.SetActive(false);
+        if(numberScene == 0)
+        {
+            StartCoroutine(SplashToMenu());
+        }
     }
+
 
     // Update is called once per frame
     void Update()
     {
-
+        MoveFromMainMenu();
     }
-
+    IEnumerator SplashToMenu()
+    {
+        yield return new WaitForSeconds(stayTime);
+        numberScene = 1;
+        SceneManager.LoadScene(1);
+    }
     public void PauseGame()
     {
-        pauseGame.SetActive(true);
+        //pauseGame.SetActive(true);
     }
 
     //pindah scene menu
@@ -64,5 +74,19 @@ public class Scene : MonoBehaviour
     public void KeluarScene()
     {
         Application.Quit();
+    }
+
+    public void MoveFromMainMenu()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Tap The Screen");
+            SceneManager.LoadScene("Galeri");
+        }
+    }
+
+    public void GoToScene()
+    {
+        SceneManager.LoadScene(nameScene);
     }
 }
