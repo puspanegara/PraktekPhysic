@@ -1066,6 +1066,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1729084540969146587, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_Text
+      value: "LEVEL \n1\n\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 1729084542069846334, guid: 299f7af89b4d3f541957097275fb578b,
         type: 3}
       propertyPath: m_IsActive
@@ -1195,6 +1200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703107654033218904, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299f7af89b4d3f541957097275fb578b, type: 3}
