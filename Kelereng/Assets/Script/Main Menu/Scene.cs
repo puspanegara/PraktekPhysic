@@ -9,6 +9,7 @@ public class Scene : MonoBehaviour
     public string nameScene;
     public float stayTime;
     public static int numberScene;
+    LingakaranPlayer lingkaran;
     void Start()
     {
         if(numberScene == 0)
@@ -58,18 +59,6 @@ public class Scene : MonoBehaviour
         SceneManager.LoadScene("Pilih Level");
     }
 
-    //pindah scene in game level 1
-    public void Level1Scene()
-    {
-        SceneManager.LoadScene("In Game Level 1");
-    }
-    
-    //pindah scene in game level 2
-    public void Level2Scene()
-    {
-        SceneManager.LoadScene("In Game Level 2");
-    }
-
     //keluar dari game
     public void KeluarScene()
     {
@@ -88,5 +77,10 @@ public class Scene : MonoBehaviour
     public void GoToScene()
     {
         SceneManager.LoadScene(nameScene);
+    }
+
+    public void LoadNextLevel()
+    {
+        lingkaran.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;   
     }
 }

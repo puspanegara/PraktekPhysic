@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LingakaranPlayer : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class LingakaranPlayer : MonoBehaviour
     public bool stay;
     public float timeCheck;
     public GameManager gm;
+    public int nextLevel;
+
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -20,6 +23,7 @@ public class LingakaranPlayer : MonoBehaviour
             else 
             {
                 stay = true;
+
                 if(stay == true)
                 {
                     if (gm.moveCount == gm.move3Stars)
@@ -34,6 +38,13 @@ public class LingakaranPlayer : MonoBehaviour
                     else if (gm.moveCount == gm.move1Stars)
                     {
                         uiCtrl.Stars1();
+                    }
+                    nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+                    SceneManager.LoadScene(nextLevel);
+
+                    if (nextLevel > PlayerPrefs.GetInt("Level At"))
+                    {
+                        PlayerPrefs.SetInt("Level At", nextLevel);
                     }
                 }
                 

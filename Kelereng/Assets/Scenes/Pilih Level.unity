@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 15
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &10955040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 4
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &224656246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Galei
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &351762147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,20 +2323,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButtons:
   - {fileID: 2011882648}
-  - {fileID: 1956832416}
-  - {fileID: 802362268}
-  - {fileID: 945035755}
-  - {fileID: 1932017718}
-  - {fileID: 989723152}
-  - {fileID: 2033295078}
-  - {fileID: 10955040}
   - {fileID: 1261934063}
+  - {fileID: 1956832416}
   - {fileID: 224656246}
+  - {fileID: 802362268}
   - {fileID: 1066000964}
+  - {fileID: 945035755}
   - {fileID: 1616292405}
+  - {fileID: 1932017718}
   - {fileID: 2024809315}
+  - {fileID: 989723152}
   - {fileID: 1021116434}
+  - {fileID: 2033295078}
   - {fileID: 1640541976}
+  - {fileID: 10955040}
   - {fileID: 1808978520}
 --- !u!4 &778271891
 Transform:
@@ -2479,6 +2482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 5
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &802362268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,6 +2778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 7
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &945035755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,6 +3000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 11
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &989723152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,6 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 12
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1021116434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3473,6 +3480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 6
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1066000964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3990,6 +3998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 2
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1261934063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4658,6 +4667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 8
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1616292405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4805,6 +4815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 14
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1640541976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5617,6 +5628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 16
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1808978520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5838,6 +5850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 9
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1932017718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6059,6 +6072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 3
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &1956832416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6445,6 +6459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 1
   stayTime: 0
+  nextLevelScene: 0
 --- !u!1 &2024809312
 GameObject:
   m_ObjectHideFlags: 0
@@ -6501,6 +6516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level 10
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &2024809315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6648,6 +6664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameScene: Level  13
   stayTime: 0
+  nextLevelScene: 0
 --- !u!114 &2033295078
 MonoBehaviour:
   m_ObjectHideFlags: 0

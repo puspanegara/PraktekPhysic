@@ -1061,6 +1061,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 837528000837798060, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nameScene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837528000837798060, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nextLevelScene
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 837528000837798063, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 837528001264740286}
+    - target: {fileID: 837528000837798063, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 837528002231337574, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 837528001264740286}
+    - target: {fileID: 837528002231337574, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 837528002231337575, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nameScene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837528002231337575, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nextLevelScene
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 837528002356871870, guid: 299f7af89b4d3f541957097275fb578b,
         type: 3}
       propertyPath: m_IsActive
@@ -1070,6 +1110,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "LEVEL \n1\n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729084541977771400, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nameScene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729084541977771400, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: nextLevelScene
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729084541977771401, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 1729084542069846334, guid: 299f7af89b4d3f541957097275fb578b,
         type: 3}
@@ -1208,6 +1263,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299f7af89b4d3f541957097275fb578b, type: 3}
+--- !u!114 &837528001264740286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1729084541977771400, guid: 299f7af89b4d3f541957097275fb578b,
+    type: 3}
+  m_PrefabInstance: {fileID: 837528001264740285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f2ebd881d1a1543a0bc57a9c801482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8311631755667962526 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8703107654033218851, guid: 299f7af89b4d3f541957097275fb578b,
