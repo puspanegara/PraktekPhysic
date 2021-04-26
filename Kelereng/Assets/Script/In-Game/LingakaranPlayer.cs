@@ -20,18 +20,23 @@ public class LingakaranPlayer : MonoBehaviour
             else 
             {
                 stay = true;
-                if (gm.moveCount == gm.move3Stars)
+                if(stay == true)
                 {
-                    uiCtrl.Stars3();
+                    if (gm.moveCount == gm.move3Stars)
+                    {
+                        uiCtrl.Stars3();
+                        Debug.Log("GET 3 STARS");
+                    }
+                    else if (gm.moveCount == gm.move2Stars)
+                    {
+                        uiCtrl.Stars2();
+                    }
+                    else if (gm.moveCount == gm.move1Stars)
+                    {
+                        uiCtrl.Stars1();
+                    }
                 }
-                else if (gm.moveCount == gm.move2Stars)
-                {
-                    uiCtrl.Stars2();
-                }
-                else if (gm.moveCount == gm.move1Stars)
-                {
-                    uiCtrl.Stars1();
-                }
+                
             }
         }
     }

@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
                 isDragging = false;
                 OnDragEnd();
              }
+        //PlayerEndGame();
         StarsPerLevel();
     }
 
@@ -117,26 +118,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Player Move : " + moveCount);
         uiCtrl.uiMoveCount.text = "Player Move : " + moveCount.ToString();
         Debug.Log(uiCtrl.uiMoveCount.text = "Move Count : "+moveCount);
-    }
-
-    void PlayerEndGame()
-    {
-        if(moveCount <= move3Stars)
-        {
-            uiCtrl.Stars3();
-            uiCtrl.playerWin = true;
-            Debug.Log("WIN 3 STARS");
-        }
-        if (moveCount == move2Stars)
-        {
-            uiCtrl.Stars2();
-            uiCtrl.playerWin = true;
-        }
-        if (moveCount >= move1Stars)
-        {
-            uiCtrl.Stars1();
-            uiCtrl.playerWin = true;
-        }
     }
     
     public void StarsPerLevel()
