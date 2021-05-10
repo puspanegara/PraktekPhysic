@@ -9,7 +9,7 @@ public class LingakaranPlayer : MonoBehaviour
     public bool stay;
     public float timeCheck;
     public GameManager gm;
-    public int nextLevel;
+    public int levelIndex;
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -23,31 +23,35 @@ public class LingakaranPlayer : MonoBehaviour
             else 
             {
                 stay = true;
-
-                if(stay == true)
+                if (stay == true)
                 {
-                    if (gm.moveCount == gm.move3Stars)
+                    if(gm.moveCount <= gm.move3Stars)
                     {
+                        gm.starsNum = 3;
                         uiCtrl.Stars3();
-                        Debug.Log("GET 3 STARS");
+                        Debug.Log(gm.starsNum);
                     }
-                    else if (gm.moveCount == gm.move2Stars)
+                    if (gm.moveCount == gm.move2Stars)
                     {
+                        gm.starsNum = 2;
                         uiCtrl.Stars2();
+                        Debug.Log(gm.starsNum);
                     }
-                    else if (gm.moveCount == gm.move1Stars)
+                    if(gm.moveCount >= gm.move1Stars)
                     {
+                        gm.starsNum = 1;
                         uiCtrl.Stars1();
+                        Debug.Log(gm.starsNum);
                     }
-                    nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-                    SceneManager.LoadScene(nextLevel);
+                    gm.currentStarsNum = gm.starsNum;
 
-                    if (nextLevel > PlayerPrefs.GetInt("Level At"))
+                    if (gm.currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
                     {
-                        PlayerPrefs.SetInt("Level At", nextLevel);
+                        PlayerPrefs.SetInt("Lv" + levelIndex, gm.starsNum);
                     }
+
+                    Debug.Log("Current Stars: " + PlayerPrefs.GetInt("Lv" + levelIndex, gm.starsNum));
                 }
-                
             }
         }
     }
@@ -60,4 +64,5 @@ public class LingakaranPlayer : MonoBehaviour
             Debug.Log("Out Circle : " + timeCheck);
         }
     }
+
 }

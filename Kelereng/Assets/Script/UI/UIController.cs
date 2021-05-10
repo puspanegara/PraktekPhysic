@@ -10,15 +10,18 @@ public class UIController : MonoBehaviour
     public GameObject Win2Stars;
     public GameObject Win1Stars;
     public GameObject losePanel;
+    public GameObject pausePanel;
     public GameObject infoBintang;
+    public GameObject[] stars;
     public bool playerWin;
     public bool playerLose;
     public bool openInfo;
-    public Text uiMoveCount;
+    public bool pause;
     public Text uiStars;
     public Text text3Stars;
     public Text text2Stars;
     public Text text1Stars;
+
     #endregion
 
     #region Private Area
@@ -47,6 +50,19 @@ public class UIController : MonoBehaviour
     {
         Win1Stars.SetActive(true);
         playerWin = true;
+    }
+
+    public void PauseGame()
+    {
+        pause = true;
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void ResumeGame()
+    {
+        pause = false;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void LoseLose()

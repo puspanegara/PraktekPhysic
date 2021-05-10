@@ -78,9 +78,4 @@ public class Scene : MonoBehaviour
     {
         SceneManager.LoadScene(nameScene);
     }
-
-    public void LoadNextLevel()
-    {
-        lingkaran.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;   
-    }
 }

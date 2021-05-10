@@ -2,20 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
-    public Button[] levelButtons;
+    [SerializeField] private bool unlocked;
+    public Image lockImage;
+    public GameObject[] stars;
+    public Sprite goldStar;
 
-    // Start is called before the first frame update
-    void Start()
+    public Button[] button;
+
+    private void Update()
     {
-        int levelAt = PlayerPrefs.GetInt("Level At", 2);
+        UpdateLevelImage();
+        UpdateLevelStatus();
+    }
 
-        for (int i=0; i < levelButtons.Length; i++)
+    private void UpdateLevelStatus()
+    {
+        int previousLevelIndex = int.Parse(gameObject.name) - 1;
+        if(PlayerPrefs.GetInt("Lv" + previousLevelIndex) > 0)
         {
-            if (i + 2 > levelAt)
-                levelButtons[i].interactable = false;
+            unlocked = true;
+        }
+    }
+    private void UpdateLevelImage()
+    {
+        if(unlocked == false) //if Unlocked is FALSE means this Level is LOCKED!!
+        {
+            lockImage.gameObject.SetActive(true);
+            
+            for(int i = 0; i < stars.Length; i++)
+            {
+                stars[i].gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            lockImage.gameObject.SetActive(false);
+
+            for (int i=0; i<stars.Length; i++)
+            {
+                stars[i].gameObject.SetActive(true);
+            }
+
+            for(int i=0; i<PlayerPrefs.GetInt("Lv"+gameObject.name); i++)
+            {
+                stars[i].gameObject.GetComponent<Image>().sprite = goldStar;
+            }
+        }
+    }
+
+    public void PressSelectionLevel(string levelName)
+    {
+        if(unlocked)
+        {
+            SceneManager.LoadScene(levelName);
         }
     }
 }

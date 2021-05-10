@@ -13,18 +13,24 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        GenCharacter();
     }
     #endregion
 
     Camera cam;
-    public BallControl ball;
+    BallControl ball;
     public int moveCount;
-    public int stars;
+    //public int stars;
     public int move3Stars;
     public int move2Stars;
     public int move1Stars;
-    public int inCircle;
     public UIController uiCtrl;
+    public GameObject[] PlayerMarbles;
+
+
+    public int currentStarsNum= 0;
+    public int starsNum;
 
     //public Trajectory trajectory;
     public float pushForce = 4f;
@@ -37,11 +43,11 @@ public class GameManager : MonoBehaviour
     Vector2 direction;
     public Vector2 force;
     float distance;
-    
 
     void Start()
     {
         cam = Camera.main;
+        ball = GameObject.FindGameObjectWithTag("Player").GetComponent<BallControl>();
         ball.DesActiveRb();
     }
 
@@ -86,7 +92,7 @@ public class GameManager : MonoBehaviour
             {
                 isDragging = false;
                 OnDragEnd();
-             }
+            }
         //PlayerEndGame();
         StarsPerLevel();
     }
@@ -115,9 +121,6 @@ public class GameManager : MonoBehaviour
         ball.Push(force);
         //trajectory.Hide();
         moveCount += 1;
-        Debug.Log("Player Move : " + moveCount);
-        uiCtrl.uiMoveCount.text = "Player Move : " + moveCount.ToString();
-        Debug.Log(uiCtrl.uiMoveCount.text = "Move Count : "+moveCount);
     }
     
     public void StarsPerLevel()
@@ -125,5 +128,10 @@ public class GameManager : MonoBehaviour
         uiCtrl.text3Stars.text = " : Max Move " + move3Stars.ToString();
         uiCtrl.text2Stars.text = " : Max Moce " + move2Stars.ToString();
         uiCtrl.text1Stars.text = " : More Than " + move1Stars.ToString();
+    }
+
+    public void GenCharacter()
+    {
+        Instantiate(PlayerMarbles[PlayerPrefs.GetInt("SelectCharacter",0)], transform.position, Quaternion.identity);
     }
 }
