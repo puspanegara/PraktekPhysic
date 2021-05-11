@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6143829096364034775}
   - component: {fileID: 6143829096364034774}
   - component: {fileID: 6143829096364034769}
+  - component: {fileID: 5906491018262304255}
   m_Layer: 0
   m_Name: Yellow Marble
   m_TagString: Player
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6143829096364034768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 118ffc7e4ade0df4cb55ea19279cda11, type: 3}
+  m_Sprite: {fileID: -3783926825631020624, guid: 5a8711859b93cbd4488ca3c5a2520541,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,3 +140,23 @@ MonoBehaviour:
   uiCtrl: {fileID: 8703107654033218851, guid: 299f7af89b4d3f541957097275fb578b, type: 3}
   gm: {fileID: 3832963049965546669, guid: d28388200ea8f4044b42e98f0b539cd7, type: 3}
   addForce: 0
+  animator: {fileID: 5906491018262304255}
+--- !u!95 &5906491018262304255
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143829096364034768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26aaf437e8766f849bd80a78d6067cab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

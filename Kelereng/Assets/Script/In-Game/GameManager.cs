@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
                 isDragging = false;
                 OnDragEnd();
             }
+
+            if(uiCtrl.pause == true)
+        {
+            moveCount += 0;
+        }
         //PlayerEndGame();
         StarsPerLevel();
     }
@@ -109,13 +114,12 @@ public class GameManager : MonoBehaviour
         distance = Vector2.Distance(startPoint, endPoint);
         direction = (startPoint - endPoint).normalized;
         force = direction * distance * pushForce;
-
         //Debug Only
-       // Debug.DrawLine(startPoint, endPoint);
+        // Debug.DrawLine(startPoint, endPoint);
 
         //trajectory.UpdateDots(ball.pos, force);
     }
-    void OnDragEnd()
+    public void OnDragEnd()
     {
         ball.ActiveRb();
         ball.Push(force);

@@ -557,6 +557,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "LEVEL \n1\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 8703107653535997922, guid: 299f7af89b4d3f541957097275fb578b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8703107654033218852, guid: 299f7af89b4d3f541957097275fb578b,
         type: 3}
       propertyPath: m_LocalPosition.x

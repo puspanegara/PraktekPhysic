@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     public Text text2Stars;
     public Text text1Stars;
 
+    GameManager gm;
+
     #endregion
 
     #region Private Area
@@ -51,19 +53,17 @@ public class UIController : MonoBehaviour
         Win1Stars.SetActive(true);
         playerWin = true;
     }
-
     public void PauseGame()
     {
         pause = true;
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;
     }
     public void ResumeGame()
     {
         pause = false;
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;
     }
+    
 
     public void LoseLose()
     {

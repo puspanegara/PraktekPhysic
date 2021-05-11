@@ -10,6 +10,7 @@ public class BallControl : MonoBehaviour
     public UIController uiCtrl;
     public GameManager gm;
     public float addForce;
+    public Animator animator;
     
     [HideInInspector] public Vector3 pos
     {
@@ -21,7 +22,6 @@ public class BallControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
     }
-
 
     public void Push(Vector2 force)
     {
