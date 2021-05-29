@@ -10,7 +10,15 @@ public class LingakaranPlayer : MonoBehaviour
     public float timeCheck;
     public GameManager gm;
     public int levelIndex;
+    public int get3Stars;
+    public int get2Stars;
+    public int get1Stars;
+    BallControl ball;
 
+    void Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("Player").GetComponent<BallControl>();
+    }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -25,19 +33,19 @@ public class LingakaranPlayer : MonoBehaviour
                 stay = true;
                 if (stay == true)
                 {
-                    if(gm.moveCount <= gm.move3Stars)
+                    if(ball.moveCount <= get3Stars)
                     {
                         gm.starsNum = 3;
                         uiCtrl.Stars3();
                         Debug.Log(gm.starsNum);
                     }
-                    if (gm.moveCount == gm.move2Stars)
+                    if (ball.moveCount == get2Stars)
                     {
                         gm.starsNum = 2;
                         uiCtrl.Stars2();
                         Debug.Log(gm.starsNum);
                     }
-                    if(gm.moveCount >= gm.move1Stars)
+                    if(ball.moveCount >= get1Stars)
                     {
                         gm.starsNum = 1;
                         uiCtrl.Stars1();

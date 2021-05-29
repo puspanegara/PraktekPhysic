@@ -11,48 +11,111 @@ public class BallControl : MonoBehaviour
     public GameManager gm;
     public float addForce;
     public Animator animator;
-    
+    public int moveCount;
+
     [HideInInspector] public Vector3 pos
     {
         get { return transform.position; }
     }
+    Camera cam;
+    public float pushForce = 4f;
+    bool isDragging = false;
+    public bool marbleMove;
+    Touch touch;
+    Vector2 startPoint;
+    Vector2 endPoint;
+    Vector2 direction;
+    float distance;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
+    }
+    void Start()
+    {
+        cam = Camera.main;
+        moveCount = 0;
+    }
+    void Update()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        #region Touch Controller
+        if (Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                isDragging = true;
+                OnDragStart();
+            }
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                OnDrag();
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                isDragging = false;
+                OnDragEnd();
+                animator.SetBool("move", true);
+            }
+        }
+        #endregion
+
+        #region Mouse Controller
+        // Mouse controller
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+            OnDragStart();
+        }
+
+        if (isDragging)
+        {
+            OnDrag();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+            OnDragEnd();
+            animator.SetBool("move", true);
+        }
+        #endregion
     }
 
-    public void Push(Vector2 force)
+    void OnDragStart()
     {
-        rb.AddForce(force, ForceMode2D.Impulse);
+        startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        //trajectory.Show();
     }
-
-    public void ActiveRb()
+    void OnDrag()
     {
-        rb.isKinematic = false;
+        endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        distance = Vector2.Distance(startPoint, endPoint);
+        direction = (startPoint - endPoint).normalized;
+        rb.velocity = direction * distance * pushForce;
+        //Debug Only
+        // Debug.DrawLine(startPoint, endPoint);
+        //trajectory.UpdateDots(ball.pos, force);
+
+    }
+    public void OnDragEnd()
+    {
+        moveCount++;
+        //trajectory.Hide();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Mantul")
         {
-            rb.velocity = gm.force * addForce;
-            Debug.Log("F" + gm.force);
-        }
-    }
-    public void DesActiveRb()
-    {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0f;
-        rb.isKinematic = true;
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Pinggiran")
-        {
-            uiCtrl.LoseLose();
-            Debug.Log("Pembatas");
+            rb.velocity = new Vector2(pushForce * 1.5f, rb.velocity.y);
         }
     }
 }

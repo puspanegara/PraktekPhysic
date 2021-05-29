@@ -9,12 +9,11 @@ public class UIController : MonoBehaviour
     public GameObject Win3Stars;
     public GameObject Win2Stars;
     public GameObject Win1Stars;
-    public GameObject losePanel;
+    public GameObject losePanelGame;
     public GameObject pausePanel;
     public GameObject infoBintang;
     public GameObject[] stars;
     public bool playerWin;
-    public bool playerLose;
     public bool openInfo;
     public bool pause;
     public Text uiStars;
@@ -34,9 +33,8 @@ public class UIController : MonoBehaviour
         Win1Stars.SetActive(false);
         Win2Stars.SetActive(false);
         Win3Stars.SetActive(false);
-        losePanel.SetActive(false);
+        losePanelGame.SetActive(false);
         playerWin = false;
-        playerLose = false;
     }
     public void Stars3()
     {
@@ -64,11 +62,10 @@ public class UIController : MonoBehaviour
         pausePanel.SetActive(false);
     }
     
-
     public void LoseLose()
     {
-        losePanel.SetActive(true);
-        playerLose = true;
+        losePanelGame.SetActive(true);
+        Debug.Log("YOU LOSE");
     }
 
     public void InfoBintang()

@@ -5,57 +5,79 @@ using UnityEngine;
 public class LingkaranNPCOut : MonoBehaviour
 {
     public UIController uiCtrl;
-    public bool stay;
+    public bool empty;
     public float timeCheck;
-    public int coutNPC;
+    public int npcCount;
     public GameManager gm;
+    BallControl ball;
+    public int levelIndex;
+    public int get3tars;
+    public int get2tars;
+    public int get1tars;
+
+    void Start()
+    {
+        ball = GameObject.FindGameObjectWithTag("Player").GetComponent<BallControl>();
+    }
 
     void Update()
     {
-        Win();
+        WinNpcOut();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "NPC")
         {
-            coutNPC += 1;
-            Debug.Log("Marbles in Circle : " + coutNPC);
+            npcCount+= 1;
+            Debug.Log("npc +1");
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "NPC")
         {
-            coutNPC -= 1;
-            Debug.Log("Marbles in Circle : " + coutNPC);
+            npcCount -= 1;
+            Debug.Log("npc -1");
         }
     }
-    public void Win()
+    public void WinNpcOut()
     {
-        if (coutNPC == 0)
+       if(npcCount > 0)
         {
+            empty = false;
+        }
+       else
+        {
+            empty = true;
             if (timeCheck > 0)
             {
                 timeCheck -= Time.deltaTime;
-                Debug.Log("Out Circle : " + timeCheck);
             }
             else
             {
-                if (gm.moveCount == gm.move3Stars)
+                if (ball.moveCount <= get3tars)
                 {
-                    stay = true;
+                    gm.starsNum = 3;
                     uiCtrl.Stars3();
                 }
-                else if (gm.moveCount == gm.move2Stars)
+                else if (ball.moveCount == get2tars)
                 {
-                    stay = true;
+                    gm.starsNum = 2;
                     uiCtrl.Stars2();
                 }
-                else if (gm.moveCount == gm.move1Stars)
+                else if (ball.moveCount >= get1tars)
                 {
-                    stay = true;
+                    gm.starsNum = 1;
                     uiCtrl.Stars1();
                 }
+                gm.currentStarsNum = gm.starsNum;
+
+                if (gm.currentStarsNum > PlayerPrefs.GetInt("Lv" + levelIndex))
+                {
+                    PlayerPrefs.SetInt("Lv" + levelIndex, gm.starsNum);
+                }
+
+                Debug.Log("Current Stars: " + PlayerPrefs.GetInt("Lv" + levelIndex, gm.starsNum));
             }
         }
     }
