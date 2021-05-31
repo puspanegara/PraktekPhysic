@@ -4,107 +4,118 @@ using UnityEngine;
 
 public class BallControl : MonoBehaviour
 {
-    #region
-    //First Script Area
-    /*
-    #region
-    //Public Area
-    public float power = 10f;
-    public float maxDrag = 1f;
-    public Rigidbody2D rb;
-    public LineRenderer lr;
-    #endregion
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public CircleCollider2D col;
 
-    Vector3 dragStartPos;
-    Vector3 draggingPos;
-    Vector3 dragRealeasePos;
-    Vector3 force;
-    Touch touch;
+    public UIController uiCtrl;
+    public GameManager gm;
+    public float addForce;
+    public Animator animator;
+    public int moveCount;
 
-    private void Update()
+    [HideInInspector] public Vector3 pos
     {
+        get { return transform.position; }
+    }
+    Camera cam;
+    public float pushForce = 4f;
+    bool isDragging = false;
+    public bool marbleMove;
+    Touch touch;
+    Vector2 startPoint;
+    Vector2 endPoint;
+    Vector2 direction;
+    float distance;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
+    }
+    void Start()
+    {
+        cam = Camera.main;
+        moveCount = 0;
+    }
+    void Update()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        #region Touch Controller
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
             {
-                DragStart();
+                isDragging = true;
+                OnDragStart();
             }
 
             if (touch.phase == TouchPhase.Moved)
             {
-                Dragging();
+                OnDrag();
             }
 
             if (touch.phase == TouchPhase.Ended)
             {
-                DragRelease();
+                isDragging = false;
+                OnDragEnd();
+                animator.SetBool("move", true);
             }
         }
+        #endregion
+
+        #region Mouse Controller
+        // Mouse controller
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+            OnDragStart();
+        }
+
+        if (isDragging)
+        {
+            OnDrag();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+            OnDragEnd();
+            animator.SetBool("move", true);
+        }
+        #endregion
     }
 
-    void DragStart()
+    void OnDragStart()
     {
-        dragStartPos = Camera.main.ScreenToWorldPoint(touch.position);
-        dragStartPos.z = 0f;
-        
-        lr.positionCount = 1;
-        lr.SetPosition(0, dragStartPos);
-        
+        startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        //trajectory.Show();
+    }
+    void OnDrag()
+    {
+        endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+        distance = Vector2.Distance(startPoint, endPoint);
+        direction = (startPoint - endPoint).normalized;
+        rb.velocity = direction * distance * pushForce;
+        //Debug Only
+        // Debug.DrawLine(startPoint, endPoint);
+        //trajectory.UpdateDots(ball.pos, force);
+
+    }
+    public void OnDragEnd()
+    {
+        moveCount++;
+        //trajectory.Hide();
     }
 
-    void Dragging()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        draggingPos = Camera.main.ScreenToWorldPoint(touch.position);
-        draggingPos.z = 0f;
-        
-        lr.positionCount = 2;
-        lr.SetPosition(1, draggingPos);
-        
-    }
-
-    void DragRelease()
-    {
-        lr.positionCount = 0;
-        dragRealeasePos = Camera.main.ScreenToWorldPoint(touch.position);
-        dragRealeasePos.z = 0f;
-
-        force = dragStartPos - dragRealeasePos;
-        Vector3 clampedForce = Vector3.ClampMagnitude(force, maxDrag) * power;
-
-        rb.AddForce(clampedForce, ForceMode2D.Impulse);
-    }
-    */
-    #endregion
-    [HideInInspector] public Rigidbody2D rb;
-    [HideInInspector] public CircleCollider2D col;
-    
-    [HideInInspector] public Vector3 pos
-    {
-        get { return transform.position; }
-    }
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<CircleCollider2D>();
-    }
-
-    public void Push(Vector2 force)
-    {
-        rb.AddForce(force, ForceMode2D.Impulse);
-    }
-
-    public void ActiveRb()
-    {
-        rb.isKinematic = false;
-    }
-
-    public void DesActiveRb()
-    {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0f;
-        rb.isKinematic = true;
+        if (collision.gameObject.tag == "Mantul")
+        {
+            rb.velocity = new Vector2(pushForce * 1.5f, rb.velocity.y);
+        }
     }
 }

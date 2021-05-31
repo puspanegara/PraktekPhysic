@@ -5,23 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class Scene : MonoBehaviour
 {
-    public GameObject pauseGame;
-
-    // Start is called before the first frame update
+    // public GameObject pauseGame;
+    public string nameScene;
+    public float stayTime;
+    public static int numberScene;
+    LingakaranPlayer lingkaran;
     void Start()
     {
-        pauseGame.SetActive(false);
+        if(numberScene == 0)
+        {
+            StartCoroutine(SplashToMenu());
+        }
     }
+
 
     // Update is called once per frame
     void Update()
     {
-
+        MoveFromMainMenu();
     }
-
+    IEnumerator SplashToMenu()
+    {
+        yield return new WaitForSeconds(stayTime);
+        numberScene = 1;
+        SceneManager.LoadScene(1);
+    }
     public void PauseGame()
     {
-        pauseGame.SetActive(true);
+        //pauseGame.SetActive(true);
     }
 
     //pindah scene menu
@@ -48,21 +59,23 @@ public class Scene : MonoBehaviour
         SceneManager.LoadScene("Pilih Level");
     }
 
-    //pindah scene in game level 1
-    public void Level1Scene()
-    {
-        SceneManager.LoadScene("In Game Level 1");
-    }
-    
-    //pindah scene in game level 2
-    public void Level2Scene()
-    {
-        SceneManager.LoadScene("In Game Level 2");
-    }
-
     //keluar dari game
     public void KeluarScene()
     {
         Application.Quit();
+    }
+
+    public void MoveFromMainMenu()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began || Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Tap The Screen");
+            SceneManager.LoadScene("Galeri");
+        }
+    }
+
+    public void GoToScene()
+    {
+        SceneManager.LoadScene(nameScene);
     }
 }

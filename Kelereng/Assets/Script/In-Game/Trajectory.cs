@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Trajectory : MonoBehaviour
 {
+    #region Dots Trajectory Path
+    /*
     [SerializeField] int dotsNumber;
     [SerializeField] GameObject dotsParent;
     [SerializeField] GameObject dotPrefab;
@@ -63,17 +65,30 @@ public class Trajectory : MonoBehaviour
         //Hide the Dots
         dotsParent.SetActive(false);
     }
+    */
+    #endregion
 
-    void OnCollisionEnter2D(Collision2D other)
+    #region Line Render Path
+    LineRenderer linePath;
+    public float maxLenght = 5f;
+
+    void Start()
     {
-        if (other.transform.CompareTag("Obs"))
-        {
-
-        }
+        linePath = GetComponent<LineRenderer>();
     }
 
-    void CollisionObs(Collision2D other)
+    public void UpdateLine()
     {
-        Vector3 reflectedPosition = Vector3.Reflect(transform.right, other.contacts[0].normal);
+
     }
+    public void ShowLine()
+    {
+        linePath.enabled = true;
+    }
+    
+    public void HideLine()
+    {
+        linePath.enabled = false;
+    }
+    #endregion
 }
